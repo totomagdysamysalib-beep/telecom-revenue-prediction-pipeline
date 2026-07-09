@@ -44,19 +44,15 @@ Trained and compared multiple robust classifiers, optimized through automated **
 ### 4. Regression Modeling & Revenue Forecasting
 * Isolated features, dropping descriptive parameters like `customerID`, and assigned `TotalCharges` as a continuous target variable for the **XGBoost Regressor**.
 * Optimized parameters through a secondary `GridSearchCV` loop, maximizing performance against the `neg_mean_absolute_error` metric.
-* **Feature Importances:** Extracted and ordered structural features to reveal the most influential customer traits determining overall bills and business revenue.
+
+### 5. Feature Importances Extraction (Key Business Insights)
+* **Feature Name Extraction:** Retrieved the exact transformed feature names directly from the `ColumnTransformer` using `ct.get_feature_names_out()`.
+* **Importance Mapping:** Combined the feature names with the trained `XGBRegressor`'s internal weights (`regressor.feature_importances_`) into a unified Pandas DataFrame.
+* **Business Analytics:** Sorted the features in descending order to isolate and print the top 10 most influential drivers behind total customer charges, providing actionable data-driven insights for stakeholders.
 
 ---
 
 ## 💻 How to Run and Use
 
 1. Upload the notebook file `Untitled25.ipynb` into your **Google Colab** workspace.
-2. Ensure your dataset file named `WA_Fn-UseC_-Telco-Customer-Churn.csv` is uploaded to the active working directory.
-3. Execute the cells sequentially to observe model training progress, validation tables, and final evaluation metrics.
-
----
-
-## 📈 Expected Outputs
-* High-accuracy performance summaries for each classification model.
-* A detailed comparison DataFrame (`comparison_df`) displaying Actual vs. Predicted values for total revenue.
-* A descending rank list highlighting the most critical features impacting the business infrastructure.
+2. Ensure your dataset file named `WA_Fn-UseC_-Telco-Customer
